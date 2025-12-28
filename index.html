@@ -7,167 +7,137 @@
 
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:#fff;
-      color:#111;
-      line-height:1.65
-    }
+    body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;line-height:1.65}
     a{text-decoration:none;color:inherit}
     img{display:block}
     .container{width:min(1100px,92%);margin:0 auto}
 
-    /* HEADER */
-    header{
-      position:sticky;
-      top:0;
-      background:rgba(255,255,255,.95);
-      border-bottom:1px solid #eee;
-      z-index:10
-    }
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:12px 0;
-      gap:14px
-    }
+    header{position:sticky;top:0;background:rgba(255,255,255,.95);border-bottom:1px solid #eee;z-index:10}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0;gap:14px}
     .brand{display:flex;align-items:center;gap:12px}
     .logo img{height:46px;width:auto}
     .brand-text strong{font-size:14px}
     .brand-text span{font-size:12px;opacity:.75}
 
     nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
-    nav a{
-      font-size:13px;
-      padding:8px 10px;
-      border-radius:10px;
-      opacity:.9
-    }
-    nav a:hover{
-      background:#fafafa;
-      border:1px solid #eee;
-      opacity:1
-    }
+    nav a{font-size:13px;padding:8px 10px;border-radius:10px;opacity:.9}
+    nav a:hover{background:#fafafa;border:1px solid #eee;opacity:1}
 
-    /* BUTTON */
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:10px;
-      border:1px solid #111;
-      background:#111;
-      color:#fff;
-      font-size:14px
-    }
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #111;background:#111;color:#fff;font-size:14px;cursor:pointer}
     .btn.ghost{background:transparent;color:#111}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
 
-    /* HERO */
     .hero{padding:44px 0}
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.25fr .75fr;
-      gap:26px
-    }
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:26px}
     .hero h1{font-size:34px;margin-bottom:10px}
     .hero p{max-width:60ch;opacity:.85;margin-bottom:16px}
-
     .meta-line{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
-    .chip{
-      border:1px solid #eee;
-      border-radius:999px;
-      padding:7px 10px;
-      font-size:12px;
-      background:#fff
-    }
+    .chip{border:1px solid #eee;border-radius:999px;padding:7px 10px;font-size:12px;background:#fff}
 
-    .hero-card{
-      border:1px solid #eee;
-      border-radius:18px;
-      overflow:hidden
-    }
-    .cover{
-      background:linear-gradient(135deg,#111,#333);
-      color:#fff;
-      padding:18px;
-      min-height:180px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end
-    }
+    .hero-card{border:1px solid #eee;border-radius:18px;overflow:hidden;background:#fff}
+    .cover{background:linear-gradient(135deg,#111,#333);color:#fff;padding:18px;min-height:180px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
     .cover small{opacity:.85;font-size:12px}
     .cover h3{font-size:20px}
+    .card-actions{display:flex;gap:10px;padding:14px;border-top:1px solid #eee}
 
-    .card-actions{
-      display:flex;
-      gap:10px;
-      padding:14px;
-      border-top:1px solid #eee
-    }
-
-    /* SECTIONS */
     section{padding:46px 0}
-    section.alt{
-      background:#fafafa;
-      border-top:1px solid #eee;
-      border-bottom:1px solid #eee
-    }
+    section.alt{background:#fafafa;border-top:1px solid #eee;border-bottom:1px solid #eee}
     h2{font-size:24px;margin-bottom:6px}
     .section-desc{opacity:.8;margin-bottom:18px}
 
-    /* GRID */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px
-    }
-    .card{
-      border:1px solid #eee;
-      border-radius:16px;
-      padding:16px;
-      background:#fff
-    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid #eee;border-radius:16px;padding:16px;background:#fff}
     .card h3{font-size:17px;margin-bottom:6px}
     .card p{font-size:14px;opacity:.85}
 
-    .row{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin-top:12px;
-      flex-wrap:wrap
-    }
-    .link{
-      font-size:14px;
-      border-bottom:1px solid transparent
-    }
-    .link:hover{border-bottom-color:#111}
-
-    /* TWO COL */
-    .two-col{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px
-    }
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .list{margin-top:10px}
     .list li{margin-left:18px;margin-bottom:6px}
 
-    /* FOOTER */
-    footer{
-      background:#111;
-      color:#fff;
-      padding:28px 0;
-      font-size:14px
+    /* UI Controls */
+    .controls{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr auto;
+      gap:12px;
+      align-items:end;
+      margin-bottom:16px;
     }
+    .field{display:grid;gap:6px}
+    label{font-size:12px;opacity:.8}
+    input, select, textarea{
+      border:1px solid #e6e6e6;
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+    }
+    input:focus, select:focus, textarea:focus{border-color:#111}
+    .hint{font-size:12px;opacity:.7;margin-top:6px}
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:999;
+    }
+    .modal{
+      width:min(720px, 100%);
+      background:#fff;
+      border-radius:18px;
+      border:1px solid #eee;
+      overflow:hidden;
+    }
+    .modal-head{
+      padding:14px 16px;
+      border-bottom:1px solid #eee;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+    }
+    .modal-body{padding:16px}
+    .xbtn{
+      border:1px solid #ddd;
+      background:#fff;
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+    }
+    .pill{
+      display:inline-block;
+      border:1px solid #eee;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      opacity:.85;
+      margin-right:8px;
+      margin-top:8px;
+    }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      right:18px; bottom:18px;
+      background:#111; color:#fff;
+      padding:12px 14px;
+      border-radius:14px;
+      display:none;
+      z-index:1000;
+      font-size:14px;
+    }
+
+    footer{background:#111;color:#fff;padding:28px 0;font-size:14px}
     footer p{opacity:.8}
     .small{font-size:12px;opacity:.7}
 
- 
     @media(max-width:900px){
       .hero-grid{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
       .two-col{grid-template-columns:1fr}
       .brand-text span{display:none}
+      .controls{grid-template-columns:1fr; align-items:stretch}
     }
   </style>
 </head>
@@ -178,8 +148,8 @@
   <div class="container nav">
     <div class="brand">
       <div class="logo">
-     
-        <img src="logo.png" alt="Ufuk Üniversitesi Logosu">
+        <!-- SENDE ÇALIŞAN LOGO YOLU -->
+        <img src="Yeni klasör (4)/logo.png" alt="Ufuk Üniversitesi Logosu">
       </div>
       <div class="brand-text">
         <strong>Ufuk Üniversitesi Dergisi</strong>
@@ -214,8 +184,8 @@
         <span class="chip">Üniversite Yayını</span>
       </div>
 
-      <a href="#sayilar" class="btn">Güncel Sayı</a>
-      <a href="#kurallar" class="btn ghost">Yazım Kuralları</a>
+      <a href="#icerik" class="btn">İçindekilere Git</a>
+      <a href="#iletisim" class="btn ghost">İletişim</a>
     </div>
 
     <div class="hero-card">
@@ -224,8 +194,8 @@
         <h3>Güncel Sayı</h3>
       </div>
       <div class="card-actions">
-        <a class="btn" href="#icerik">İçindekiler</a>
-        <a class="btn ghost" href="#">PDF</a>
+        <button class="btn" id="btnGuncel">İçindekiler</button>
+        <button class="btn ghost" id="btnPdf">PDF (demo)</button>
       </div>
     </div>
   </div>
@@ -243,11 +213,11 @@
       </div>
       <div class="card">
         <h3>Sayı 2</h3>
-        <p>Eylül 2025</p>
+        <p>Haziran 2026</p>
       </div>
       <div class="card">
         <h3>Sayı 3</h3>
-        <p>Mayıs 2025</p>
+        <p>Aralık 2026</p>
       </div>
     </div>
   </div>
@@ -256,28 +226,49 @@
 <section id="icerik" class="alt">
   <div class="container">
     <h2>İçindekiler</h2>
-    <p class="section-desc">Güncel sayıdaki yazılar</p>
+    <p class="section-desc">Arama + filtre ile makaleleri görüntüle (kullanıcı arayüzü)</p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Makale Başlığı 1</h3>
-        <p>Yazar: Ad Soyad</p>
+    <!-- UI CONTROLS -->
+    <div class="controls">
+      <div class="field">
+        <label for="q">Makale Ara</label>
+        <input id="q" type="text" placeholder="Örn: kampüs, hukuk, teknoloji..." />
+        <div class="hint">Yazdıkça liste filtrelenir.</div>
       </div>
-      <div class="card">
-        <h3>Makale Başlığı 2</h3>
-        <p>Yazar: Ad Soyad</p>
+
+      <div class="field">
+        <label for="issue">Sayı</label>
+        <select id="issue">
+          <option value="all">Tümü</option>
+          <option value="1">Sayı 1</option>
+          <option value="2">Sayı 2</option>
+          <option value="3">Sayı 3</option>
+        </select>
       </div>
-      <div class="card">
-        <h3>Makale Başlığı 3</h3>
-        <p>Yazar: Ad Soyad</p>
+
+      <div class="field">
+        <label for="cat">Kategori</label>
+        <select id="cat">
+          <option value="all">Tümü</option>
+          <option value="Akademik">Akademik</option>
+          <option value="Kültür">Kültür</option>
+          <option value="Kampüs">Kampüs</option>
+        </select>
       </div>
+
+      <button class="btn ghost" id="reset">Sıfırla</button>
     </div>
+
+    <!-- ARTICLE GRID -->
+    <div class="grid" id="articleGrid"></div>
+    <div class="hint" id="countHint" style="margin-top:12px;"></div>
   </div>
 </section>
 
 <section id="kurullar">
   <div class="container">
     <h2>Yayın Kurulu ve Yazarlar</h2>
+    <p class="section-desc">Kurul/yazar bilgileri (örnek)</p>
 
     <div class="two-col">
       <div class="card">
@@ -304,6 +295,7 @@
 <section id="kurallar" class="alt">
   <div class="container">
     <h2>Yazım Kuralları</h2>
+    <p class="section-desc">Temel esaslar (örnek)</p>
     <ul class="list">
       <li>Türkçe dil kurallarına uygunluk</li>
       <li>Özgün içerik</li>
@@ -315,12 +307,223 @@
 
 <footer id="iletisim">
   <div class="container">
-    <p><b>Ufuk Üniversitesi Dergisi</b></p>
-    <p>İletişim: dergi@ufuk.edu.tr</p>
-    <p class="small">© 2025 Ufuk Üniversitesi</p>
+    <h2 style="color:#fff;margin-bottom:10px;">İletişim</h2>
+    <p style="margin-bottom:12px;">Hocaya “arayüz” göstermek için basit form + doğrulama.</p>
+
+    <div class="two-col">
+      <div class="card" style="background:#111;color:#fff;border-color:#222;">
+        <h3>Ufuk Üniversitesi Dergisi</h3>
+        <p style="opacity:.85;margin-top:8px;">E-posta: dergi@ufuk.edu.tr (örnek)</p>
+        <p class="small" style="margin-top:10px;">© 2025 Ufuk Üniversitesi</p>
+      </div>
+
+      <form class="card" id="contactForm">
+        <h3>Mesaj Gönder</h3>
+        <div class="field" style="margin-top:10px;">
+          <label for="name">Ad Soyad</label>
+          <input id="name" type="text" placeholder="Ad Soyad" />
+        </div>
+        <div class="field" style="margin-top:10px;">
+          <label for="mail">E-posta</label>
+          <input id="mail" type="email" placeholder="ornek@mail.com" />
+        </div>
+        <div class="field" style="margin-top:10px;">
+          <label for="msg">Mesaj</label>
+          <textarea id="msg" rows="4" placeholder="Mesajınız..."></textarea>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn" type="submit">Gönder</button>
+          <button class="btn ghost" type="button" id="fillDemo">Demo Doldur</button>
+        </div>
+        <div class="hint" id="formHint" style="margin-top:10px;"></div>
+      </form>
+    </div>
   </div>
 </footer>
 
+<!-- MODAL -->
+<div class="modal-backdrop" id="backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="modal-head">
+      <div>
+        <strong id="mTitle">Başlık</strong>
+        <div id="mMeta" class="small" style="opacity:.7;margin-top:4px;"></div>
+      </div>
+      <button class="xbtn" id="closeModal">Kapat</button>
+    </div>
+    <div class="modal-body">
+      <div id="mPills"></div>
+      <p id="mAbs" style="margin-top:12px;opacity:.9;"></p>
+      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn" id="mRead">Tam Metin (demo)</button>
+        <button class="btn ghost" id="mPdf">PDF (demo)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">OK</div>
+
+<script>
+  // --- Data (örnek makaleler) ---
+  const articles = [
+    { id: 1, title: "Üniversite Yaşamında Teknoloji", author: "Ad Soyad", issue: "1", cat: "Akademik",
+      pages: "1–12", abs: "Teknolojinin üniversite yaşamına etkisi ve öğrenci deneyimine katkıları incelenmektedir." },
+    { id: 2, title: "Kampüs Etkinlik Rehberi", author: "Ad Soyad", issue: "1", cat: "Kampüs",
+      pages: "13–18", abs: "Kulüpler, etkinlikler ve kampüs içi sosyal hayat için öneriler." },
+    { id: 3, title: "Kültür-Sanat Dosyası", author: "Ad Soyad", issue: "1", cat: "Kültür",
+      pages: "19–30", abs: "Üniversite çevresindeki kültür-sanat etkinlikleri ve kısa değerlendirmeler." },
+    { id: 4, title: "Akademik Yazımda Kaynak Gösterme", author: "Ad Soyad", issue: "2", cat: "Akademik",
+      pages: "5–16", abs: "Kaynak gösterimi ve temel yazım prensipleri üzerine pratik bir çerçeve." },
+    { id: 5, title: "Kampüste Gönüllülük", author: "Ad Soyad", issue: "2", cat: "Kampüs",
+      pages: "17–24", abs: "Gönüllülük çalışmaları ve öğrenci topluluklarının sosyal katkısı." },
+    { id: 6, title: "Edebiyat Köşesi", author: "Ad Soyad", issue: "3", cat: "Kültür",
+      pages: "10–20", abs: "Seçme metinler ve kısa eleştiri yazıları." },
+  ];
+
+  // --- Elements ---
+  const q = document.getElementById("q");
+  const issue = document.getElementById("issue");
+  const cat = document.getElementById("cat");
+  const reset = document.getElementById("reset");
+  const grid = document.getElementById("articleGrid");
+  const countHint = document.getElementById("countHint");
+
+  const backdrop = document.getElementById("backdrop");
+  const closeModal = document.getElementById("closeModal");
+  const mTitle = document.getElementById("mTitle");
+  const mMeta = document.getElementById("mMeta");
+  const mAbs = document.getElementById("mAbs");
+  const mPills = document.getElementById("mPills");
+
+  const toast = document.getElementById("toast");
+
+  function showToast(text){
+    toast.textContent = text;
+    toast.style.display = "block";
+    setTimeout(()=> toast.style.display = "none", 1800);
+  }
+
+  // --- Render ---
+  function render(list){
+    grid.innerHTML = "";
+    list.forEach(a => {
+      const el = document.createElement("div");
+      el.className = "card";
+      el.innerHTML = `
+        <h3>${a.title}</h3>
+        <p><b>Yazar:</b> ${a.author}</p>
+        <p><b>Sayı:</b> ${a.issue} • <b>Kategori:</b> ${a.cat}</p>
+        <p><b>Sayfa:</b> ${a.pages}</p>
+        <div class="row">
+          <a class="link" href="#" data-open="${a.id}">Detay</a>
+          <a class="link" href="#" data-pdf="${a.id}">PDF (demo)</a>
+        </div>
+      `;
+      grid.appendChild(el);
+    });
+
+    countHint.textContent = `Gösterilen makale: ${list.length} / ${articles.length}`;
+  }
+
+  function applyFilters(){
+    const text = q.value.trim().toLowerCase();
+    const iss = issue.value;
+    const c = cat.value;
+
+    const filtered = articles.filter(a => {
+      const textOk = !text || (a.title.toLowerCase().includes(text) || a.author.toLowerCase().includes(text) || a.cat.toLowerCase().includes(text));
+      const issueOk = (iss === "all") || (a.issue === iss);
+      const catOk = (c === "all") || (a.cat === c);
+      return textOk && issueOk && catOk;
+    });
+
+    render(filtered);
+  }
+
+  // --- Modal ---
+  function openModal(a){
+    mTitle.textContent = a.title;
+    mMeta.textContent = `Yazar: ${a.author} • Sayı: ${a.issue} • Sayfa: ${a.pages}`;
+    mAbs.textContent = a.abs;
+
+    mPills.innerHTML = `
+      <span class="pill">${a.cat}</span>
+      <span class="pill">Basılı Dergi</span>
+      <span class="pill">Ufuk Üniversitesi</span>
+    `;
+
+    backdrop.style.display = "flex";
+    backdrop.setAttribute("aria-hidden", "false");
+  }
+
+  function hideModal(){
+    backdrop.style.display = "none";
+    backdrop.setAttribute("aria-hidden", "true");
+  }
+
+  // --- Events ---
+  q.addEventListener("input", applyFilters);
+  issue.addEventListener("change", applyFilters);
+  cat.addEventListener("change", applyFilters);
+  reset.addEventListener("click", () => { q.value=""; issue.value="all"; cat.value="all"; applyFilters(); });
+
+  document.addEventListener("click", (e) => {
+    const openId = e.target?.getAttribute?.("data-open");
+    const pdfId = e.target?.getAttribute?.("data-pdf");
+    if(openId){
+      e.preventDefault();
+      const a = articles.find(x => String(x.id) === String(openId));
+      if(a) openModal(a);
+    }
+    if(pdfId){
+      e.preventDefault();
+      showToast("PDF demo: bağlantı örnek amaçlı.");
+    }
+  });
+
+  closeModal.addEventListener("click", hideModal);
+  backdrop.addEventListener("click", (e) => { if(e.target === backdrop) hideModal(); });
+  document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") hideModal(); });
+
+  // Hero buttons
+  document.getElementById("btnGuncel").addEventListener("click", ()=> {
+    document.getElementById("icerik").scrollIntoView({behavior:"smooth"});
+  });
+  document.getElementById("btnPdf").addEventListener("click", ()=> showToast("PDF demo: bağlantı örnek amaçlı."));
+
+  // Contact form demo
+  const form = document.getElementById("contactForm");
+  const nameEl = document.getElementById("name");
+  const mailEl = document.getElementById("mail");
+  const msgEl = document.getElementById("msg");
+  const hint = document.getElementById("formHint");
+  document.getElementById("fillDemo").addEventListener("click", ()=>{
+    nameEl.value = "Ozan Çoşkun";
+    mailEl.value = "ozan@example.com";
+    msgEl.value = "Merhaba, dergi hakkında bilgi almak istiyorum.";
+    hint.textContent = "Demo veriler dolduruldu.";
+  });
+
+  form.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    hint.textContent = "";
+    const n = nameEl.value.trim();
+    const m = mailEl.value.trim();
+    const msg = msgEl.value.trim();
+
+    if(n.length < 3){ hint.textContent = "Ad Soyad en az 3 karakter olmalı."; return; }
+    if(!m.includes("@") || !m.includes(".")){ hint.textContent = "Geçerli bir e-posta gir."; return; }
+    if(msg.length < 10){ hint.textContent = "Mesaj en az 10 karakter olmalı."; return; }
+
+    showToast("Mesaj gönderildi (demo).");
+    hint.textContent = "Başarıyla gönderildi (demo).";
+    form.reset();
+  });
+
+  // Initial render
+  render(articles);
+</script>
+
 </body>
 </html>
-
