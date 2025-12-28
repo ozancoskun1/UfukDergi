@@ -3,249 +3,323 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ufuk Üniversitesi Dijital Dergisi</title>
+  <title>Ufuk Üniversitesi Dergisi</title>
 
   <style>
-    /* ====== RESET ====== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111;
-      background: #fff;
-      line-height: 1.6;
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#fff;
+      color:#111;
+      line-height:1.65
     }
-    a { text-decoration: none; color: inherit; }
-    .container { width: min(1100px, 92%); margin: 0 auto; }
+    a{text-decoration:none;color:inherit}
+    img{display:block}
+    .container{width:min(1100px,92%);margin:0 auto}
 
-    /* ====== NAVBAR ====== */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid #eee;
-      z-index: 10;
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      background:rgba(255,255,255,.95);
+      border-bottom:1px solid #eee;
+      z-index:10
     }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 0;
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 0;
+      gap:14px
     }
-    .logo { font-weight: 800; letter-spacing: 0.5px; }
-    nav a { margin-left: 16px; font-size: 14px; }
-    nav a:hover { text-decoration: underline; }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo img{height:46px;width:auto}
+    .brand-text strong{font-size:14px}
+    .brand-text span{font-size:12px;opacity:.75}
 
-    /* ====== BUTTON ====== */
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid #111;
-      background: #111;
-      color: #fff;
-      font-size: 14px;
+    nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+    nav a{
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:10px;
+      opacity:.9
     }
-    .btn.ghost {
-      background: transparent;
-      color: #111;
-    }
-
-    /* ====== HERO ====== */
-    .hero { padding: 42px 0; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-    }
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      max-width: 55ch;
-      opacity: 0.85;
-      margin-bottom: 16px;
+    nav a:hover{
+      background:#fafafa;
+      border:1px solid #eee;
+      opacity:1
     }
 
-    .hero-card {
-      border: 1px solid #eee;
-      border-radius: 18px;
-      overflow: hidden;
+    /* BUTTON */
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid #111;
+      background:#111;
+      color:#fff;
+      font-size:14px
     }
-    .cover {
-      padding: 18px;
-      min-height: 180px;
-      background: linear-gradient(135deg, #111, #333);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+    .btn.ghost{background:transparent;color:#111}
+
+    /* HERO */
+    .hero{padding:44px 0}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:26px
     }
-    .cover h3 { font-size: 20px; }
+    .hero h1{font-size:34px;margin-bottom:10px}
+    .hero p{max-width:60ch;opacity:.85;margin-bottom:16px}
 
-    /* ====== SECTION ====== */
-    section { padding: 44px 0; }
-    section.alt { background: #fafafa; border-top: 1px solid #eee; }
-
-    h2 { font-size: 24px; margin-bottom: 6px; }
-    .section-desc { opacity: 0.8; margin-bottom: 18px; }
-
-    /* ====== GRID ====== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .card {
-      border: 1px solid #eee;
-      border-radius: 16px;
-      padding: 16px;
-      background: #fff;
-    }
-    .card h3 { font-size: 18px; margin-bottom: 6px; }
-    .card p { font-size: 14px; opacity: 0.85; }
-
-    /* ====== ABOUT ====== */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .about div {
-      border: 1px solid #eee;
-      border-radius: 16px;
-      padding: 16px;
+    .meta-line{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 18px}
+    .chip{
+      border:1px solid #eee;
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;
+      background:#fff
     }
 
-    /* ====== FOOTER ====== */
-    footer {
-      background: #111;
-      color: #fff;
-      padding: 28px 0;
-      font-size: 14px;
+    .hero-card{
+      border:1px solid #eee;
+      border-radius:18px;
+      overflow:hidden
     }
-    footer p { opacity: 0.8; }
+    .cover{
+      background:linear-gradient(135deg,#111,#333);
+      color:#fff;
+      padding:18px;
+      min-height:180px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end
+    }
+    .cover small{opacity:.85;font-size:12px}
+    .cover h3{font-size:20px}
 
-    /* ====== RESPONSIVE ====== */
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
-      .about { grid-template-columns: 1fr; }
+    .card-actions{
+      display:flex;
+      gap:10px;
+      padding:14px;
+      border-top:1px solid #eee
+    }
+
+    /* SECTIONS */
+    section{padding:46px 0}
+    section.alt{
+      background:#fafafa;
+      border-top:1px solid #eee;
+      border-bottom:1px solid #eee
+    }
+    h2{font-size:24px;margin-bottom:6px}
+    .section-desc{opacity:.8;margin-bottom:18px}
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px
+    }
+    .card{
+      border:1px solid #eee;
+      border-radius:16px;
+      padding:16px;
+      background:#fff
+    }
+    .card h3{font-size:17px;margin-bottom:6px}
+    .card p{font-size:14px;opacity:.85}
+
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:12px;
+      flex-wrap:wrap
+    }
+    .link{
+      font-size:14px;
+      border-bottom:1px solid transparent
+    }
+    .link:hover{border-bottom-color:#111}
+
+    /* TWO COL */
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px
+    }
+    .list{margin-top:10px}
+    .list li{margin-left:18px;margin-bottom:6px}
+
+    /* FOOTER */
+    footer{
+      background:#111;
+      color:#fff;
+      padding:28px 0;
+      font-size:14px
+    }
+    footer p{opacity:.8}
+    .small{font-size:12px;opacity:.7}
+
+ 
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .brand-text span{display:none}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <div class="container nav">
-      <div class="logo">UFUK DERGİ</div>
-      <nav>
-        <a href="#sayilar">Sayılar</a>
-        <a href="#makaleler">Makaleler</a>
-        <a href="#hakkimizda">Hakkımızda</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>Ufuk Üniversitesi Dijital Dergisi</h1>
-        <p>
-          Akademik çalışmalar, kültür-sanat yazıları ve kampüs yaşamına dair
-          içeriklerin yer aldığı üniversite dergisi.
-        </p>
-        <a class="btn" href="#sayilar">Son Sayıyı İncele</a>
-        <a class="btn ghost" href="#makaleler">Makaleler</a>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">
+     
+        <img src="logo.png" alt="Ufuk Üniversitesi Logosu">
       </div>
-
-      <div class="hero-card">
-        <div class="cover">
-          <small>Aralık 2025 • Sayı 1</small>
-          <h3>Dijital Dönüşüm</h3>
-        </div>
+      <div class="brand-text">
+        <strong>Ufuk Üniversitesi Dergisi</strong>
+        <span>Yayın Kurulu • Yazarlar • Dergi Sayıları</span>
       </div>
     </div>
-  </section>
 
-  <!-- ISSUES -->
-  <section id="sayilar">
-    <div class="container">
-      <h2>Dergi Sayıları</h2>
-      <p class="section-desc">Yayınlanan dergi sayılarımız</p>
+    <nav>
+      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="#sayilar">Sayılar</a>
+      <a href="#icerik">İçindekiler</a>
+      <a href="#kurullar">Kurullar</a>
+      <a href="#kurallar">Yazım Kuralları</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Sayı 1</h3>
-          <p>Dijital Dönüşüm</p>
-        </div>
-        <div class="card">
-          <h3>Sayı 2</h3>
-          <p>Yapay Zekâ ve Eğitim</p>
-        </div>
-        <div class="card">
-          <h3>Sayı 3</h3>
-          <p>Kariyer ve Mezunlar</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ARTICLES -->
-  <section id="makaleler" class="alt">
-    <div class="container">
-      <h2>Öne Çıkan Makaleler</h2>
-      <p class="section-desc">Editör seçkisi</p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Üniversitelerde Dijitalleşme</h3>
-          <p>Akademik süreçlerde teknolojinin rolü.</p>
-        </div>
-        <div class="card">
-          <h3>Kampüs Etkinlikleri</h3>
-          <p>Ayın öne çıkan öğrenci etkinlikleri.</p>
-        </div>
-        <div class="card">
-          <h3>Sağlıklı Öğrenci Yaşamı</h3>
-          <p>Sınav döneminde dengeyi korumak.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="hakkimizda">
-    <div class="container">
-      <h2>Hakkımızda</h2>
-      <p class="section-desc">
-        Ufuk Üniversitesi öğrencileri ve akademisyenleri tarafından hazırlanan
-        dijital yayın.
+<section id="anasayfa" class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Ufuk Üniversitesi Dergisi</h1>
+      <p>
+        Ufuk Üniversitesi bünyesinde yayımlanan; akademik, kültürel ve
+        üniversite yaşamına yönelik içeriklerin yer aldığı süreli dergi.
       </p>
 
-      <div class="about">
-        <div>
-          <h3>Misyon</h3>
-          <p>Bilgiyi düzenli ve erişilebilir sunmak.</p>
-        </div>
-        <div>
-          <h3>Vizyon</h3>
-          <p>Üniversite içinde referans bir yayın olmak.</p>
-        </div>
+      <div class="meta-line">
+        <span class="chip">Süreli Yayın</span>
+        <span class="chip">Basılı Dergi</span>
+        <span class="chip">Akademik & Kültürel</span>
+        <span class="chip">Üniversite Yayını</span>
+      </div>
+
+      <a href="#sayilar" class="btn">Güncel Sayı</a>
+      <a href="#kurallar" class="btn ghost">Yazım Kuralları</a>
+    </div>
+
+    <div class="hero-card">
+      <div class="cover">
+        <small>Aralık 2025 • Sayı 1</small>
+        <h3>Güncel Sayı</h3>
+      </div>
+      <div class="card-actions">
+        <a class="btn" href="#icerik">İçindekiler</a>
+        <a class="btn ghost" href="#">PDF</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2025 Ufuk Üniversitesi Dijital Dergisi</p>
+<section id="sayilar">
+  <div class="container">
+    <h2>Dergi Sayıları</h2>
+    <p class="section-desc">Yayımlanan dergi sayıları</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Sayı 1</h3>
+        <p>Aralık 2025</p>
+      </div>
+      <div class="card">
+        <h3>Sayı 2</h3>
+        <p>Haziran 2026</p>
+      </div>
+      <div class="card">
+        <h3>Sayı 3</h3>
+        <p>Aralık 2026</p>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section id="icerik" class="alt">
+  <div class="container">
+    <h2>İçindekiler</h2>
+    <p class="section-desc">Güncel sayıdaki yazılar</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Makale Başlığı 1</h3>
+        <p>Yazar: Ad Soyad</p>
+      </div>
+      <div class="card">
+        <h3>Makale Başlığı 2</h3>
+        <p>Yazar: Ad Soyad</p>
+      </div>
+      <div class="card">
+        <h3>Makale Başlığı 3</h3>
+        <p>Yazar: Ad Soyad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kurullar">
+  <div class="container">
+    <h2>Yayın Kurulu ve Yazarlar</h2>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Yayın Kurulu</h3>
+        <ul class="list">
+          <li>Prof. Dr. Ad Soyad</li>
+          <li>Doç. Dr. Ad Soyad</li>
+          <li>Dr. Öğr. Üyesi Ad Soyad</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Yazarlar</h3>
+        <ul class="list">
+          <li>Ad Soyad</li>
+          <li>Ad Soyad</li>
+          <li>Ad Soyad</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kurallar" class="alt">
+  <div class="container">
+    <h2>Yazım Kuralları</h2>
+    <ul class="list">
+      <li>Türkçe dil kurallarına uygunluk</li>
+      <li>Özgün içerik</li>
+      <li>Kaynak gösterimi</li>
+      <li>Belirlenen formatta teslim</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="iletisim">
+  <div class="container">
+    <p><b>Ufuk Üniversitesi Dergisi</b></p>
+    <p>İletişim: dergi@ufuk.edu.tr</p>
+    <p class="small">© 2025 Ufuk Üniversitesi</p>
+  </div>
+</footer>
 
 </body>
 </html>
